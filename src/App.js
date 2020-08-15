@@ -1,35 +1,34 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './components/Layout';
 
 const App = () => { 
-  // const [id, setId] = useState(null); // 0 
-  let id = 27;
-  let queryString = "Led Zeppelin";
-  const [content, setContent] = useState({}); 
-
-  const songUrl = `http://www.songsterr.com/a/wa/songs.json?pattern=${queryString}`;
-  const generalUrl = `http://www.songsterr.com/a/ra/songs.json?pattern=${queryString}`;
-  const targetUrl = generalUrl;
-  const proxyUrl = `https://cors-anywhere.herokuapp.com/${targetUrl}`;
-  const pageUrl = `http://www.songsterr.com/a/wa/song?id=${id}`;
+  const [query, setQuery] = useState(""); 
+  const [data, setData] = useState({});
+  const [landed, setLanded] = useState(true); 
 
   const getData = async () => {
-    // Header required for CORS 
-    proxyUrl = `https://cors-anywhere.herokuapp.com/${targetUrl}`;
-    const response = await axios.get(proxyUrl, { headers: { 'Origin': 'http://localhost:3000/' } });
-    console.log(response.data); 
+    // Get endpoint param from search query 
+    let targetUrl = `http://www.songsterr.com/a/ra/songs.json?pattern=${query}`;
+
+    // CORS proxy used for outside request 
+    let proxyUrl = `https://cors-anywhere.herokuapp.com/${targetUrl}`;
+    const response = await axios.get(proxyUrl, { headers: { 'Content-Type': 'application/json' } });
+    setData(response.data[0]);
+    setLanded(false); 
   }
 
-  useEffect(() => {
-    getData();
-  });
+  const getQuery = (query) => {
+    // Lift state up from SearchBar 
+    setQuery(query);
+  }
+
 
   return (
     <div className="App">
-      <Layout id={id} address={pageUrl} getContent={getData} />
+      <Layout data={data} getData={getData} getQuery={getQuery} landed={landed} />
     </div>
   );
 }
