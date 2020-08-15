@@ -1,3 +1,7 @@
+# react-tabs
+
+Search for your favourite songs or artists to receive guitar, bass, or drum tablature.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
