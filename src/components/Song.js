@@ -1,14 +1,16 @@
 import React from 'react';
 import '../styles/Song.css';
 
-const Song = ({id, title, artist}) => {
-    const address = `http://www.songsterr.com/a/wa/song?id=${id}`;
+const Song = ({data, landed}) => {
+    const address = `http://www.songsterr.com/a/wa/song?id=${data.id}`;
+    console.log("Hi");
+    console.log(data);
 
     return(
         <div className="song">
-            <h2>{title}</h2>
-            <h3>{artist}</h3>
-            <a href={address}>Guitar Tab</a>
+            <h2 className="title">{data.title}</h2>
+            {(!landed) ? <h3 className="artist">{data.artist.nameWithoutThePrefix}</h3> : null} 
+            <a className="tab-link" href={address}>Guitar Tab</a>
         </div>        
     )
 }

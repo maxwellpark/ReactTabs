@@ -1,23 +1,34 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import axios from 'axios';
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './components/Layout';
 
-
 const App = () => { 
-  const [id, setId] = useState(null); // 0 
-  const [content, setContent] = useState({}); // []
-  const address = `http://www.songsterr.com/a/wa/song?id=${id}`;
+  const [query, setQuery] = useState(""); 
+  const [data, setData] = useState({});
+  const [landed, setLanded] = useState(true); 
 
-  const getContent = async () => {
-    let response = await fetch(address);
-    let content = await response.json();
-    setContent(content); 
-    console.log("Response content: ", content);
-  };
+  const getData = async () => {
+    // Get endpoint param from search query 
+    let targetUrl = `http://www.songsterr.com/a/ra/songs.json?pattern=${query}`;
+
+    // CORS proxy used for outside request 
+    let proxyUrl = `https://cors-anywhere.herokuapp.com/${targetUrl}`;
+    const response = await axios.get(proxyUrl, { headers: { 'Content-Type': 'application/json' } });
+    setData(response.data[0]);
+    setLanded(false); 
+  }
+
+  const getQuery = (query) => {
+    // Lift state up from SearchBar 
+    setQuery(query);
+  }
+
+
   return (
     <div className="App">
-      <Layout address={address} getContent={getContent} />
+      <Layout data={data} getData={getData} getQuery={getQuery} landed={landed} />
     </div>
   );
 }

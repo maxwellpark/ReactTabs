@@ -1,17 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl'; 
 
-const SearchBar = () => {
-
-    const [query, setQuery] = useState(""); 
-
-    useEffect(() => {
-        console.log("Query state: ", query); 
-    });
-
+const SearchBar = ({getQuery}) => {
     return(
-        <InputGroup size="lg" className="mb-3" onChange={e => setQuery(e.target.value)}>
+        <InputGroup size="lg" className="mb-3" onChange={e => getQuery(e.target.value)}>
             <FormControl placeholder="Enter query" />
         </InputGroup>
     );

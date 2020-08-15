@@ -7,7 +7,8 @@ import SearchBar from './SearchBar';
 import SubmitButton from './SubmitButton';
 import Song from './Song'; 
 
-const Layout = ({getContent, address}) => {
+const Layout = ({data, getQuery, getData, landed}) => {
+    // Grid dimensions 
     const col1Width = 3; 
     const col2Width = 6; 
     const col3Width = 1; 
@@ -19,14 +20,13 @@ const Layout = ({getContent, address}) => {
         <Row>
             <Col xs={col1Width} />
             <Col xs={col2Width}>
-                <SearchBar />
+                <SearchBar getQuery={getQuery} />
             </Col>
             <Col xs={col3Width}>
-                <SubmitButton getContent={getContent}>Submit</SubmitButton>
+                <SubmitButton getData={getData} getQuery={getQuery}>Submit</SubmitButton>
             </Col>
         </Row>
-        {/* Placeholder */}
-        <Song id={27} address={address} title={"Stairway to Heaven"} artist={"Led Zeppelin"}/>
+        <Song data={data} landed={landed}/>
     </Container>
     </>
     );
