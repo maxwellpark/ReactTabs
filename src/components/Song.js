@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/Song.css';
+import '../styles/Song.css';
 
 const Song = ({id, title, artist}) => {
     const address = `http://www.songsterr.com/a/wa/song?id=${id}`;

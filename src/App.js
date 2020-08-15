@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Layout from './Layout';
+import Layout from './components/Layout';
 
 
 const App = () => { 
