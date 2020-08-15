@@ -1,13 +1,23 @@
-import React from 'react';
-import './App.css';
-import Header from './Header';
-import Song from './Song';
+import React, {useState, useEffect} from 'react';
+import './styles/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Layout from './Layout';
 
-const App = () => {
+
+const App = () => { 
+  const [id, setId] = useState(null); // 0 
+  const [content, setContent] = useState({}); // []
+  const address = `http://www.songsterr.com/a/wa/song?id=${id}`;
+
+  const getContent = async () => {
+    let response = await fetch(address);
+    let content = await response.json();
+    setContent(content); 
+    console.log("Response content: ", content);
+  };
   return (
     <div className="App">
-      <Header />
-      <Song id={27} title={"Stairway to Heaven"} artist={"Led Zeppelin"} />
+      <Layout address={address} getContent={getContent} />
     </div>
   );
 }

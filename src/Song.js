@@ -1,12 +1,14 @@
 import React from 'react';
-// import style from './songs.module.css';
+import './styles/Song.css';
 
 const Song = ({id, title, artist}) => {
+    const address = `http://www.songsterr.com/a/wa/song?id=${id}`;
+
     return(
-        <div>
+        <div className="song">
             <h2>{title}</h2>
             <h3>{artist}</h3>
-            <a href={`http://www.songsterr.com/a/wa/song?id=${id}`}>Guitar Tab</a>
+            <a href={address}>Guitar Tab</a>
         </div>        
     )
 }
