@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 const SubmitButton = ({address, getContent}) => {
     return(
-        <Button size="lg" variant="outline-primary" block onClick={getContent()}>Submit</Button>
+        <Button size="lg" variant="outline-primary" onClick={getContent()}>Submit</Button>
     );
 
 };
