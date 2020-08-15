@@ -20,7 +20,7 @@ const Layout = ({data, getQuery, getData, landed}) => {
         <Row>
             <Col xs={col1Width} />
             <Col xs={col2Width}>
-                <SearchBar getQuery={getQuery} />
+                <SearchBar getData={getData} getQuery={getQuery} />
             </Col>
             <Col xs={col3Width}>
                 <SubmitButton getData={getData} getQuery={getQuery}>Submit</SubmitButton>

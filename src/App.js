@@ -10,6 +10,10 @@ const App = () => {
   const [landed, setLanded] = useState(true); 
 
   const getData = async () => {
+    if (query == "") {
+      return;
+    }
+
     // Get endpoint param from search query 
     let targetUrl = `http://www.songsterr.com/a/ra/songs.json?pattern=${query}`;
 

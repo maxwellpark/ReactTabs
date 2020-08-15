@@ -1,3 +1,15 @@
-.song {
-    text-align: center; 
+a:link {
+    color: #0300a0
 }
+a:visited {
+    color: #590083
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.song, .tab-link {
+    text-align: center; 
+    color: whitesmoke; 
+}
+
