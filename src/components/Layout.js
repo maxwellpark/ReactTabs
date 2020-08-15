@@ -7,6 +7,7 @@ import QueryRadios from "./QueryRadios";
 import SearchBar from "./SearchBar";
 import SubmitButton from "./SubmitButton";
 import Song from "./Song";
+import SongCatalogue from "./SongCatalogue";
 
 const Layout = ({ data, getQuery, getData, getQueryType, landed }) => {
   // Grid dimensions
@@ -34,7 +35,8 @@ const Layout = ({ data, getQuery, getData, getQueryType, landed }) => {
             </SubmitButton>
           </Col>
         </Row>
-        <Song data={data} landed={landed} />
+        {/* <Song data={data} landed={landed} /> */}
+        <SongCatalogue data={data} landed={landed} />
       </Container>
     </>
   );

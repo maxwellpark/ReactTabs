@@ -15,15 +15,26 @@ const App = () => {
       return;
     }
 
-    // Get endpoint param from search query
-    let targetUrl = `http://www.songsterr.com/a/ra/songs.json?pattern=${query}`;
+    let targetUrl;
+    if (queryType == "artist") {
+      // Get endpoint param from search query
+      targetUrl = `http://www.songsterr.com/a/ra/songs.json?pattern=${query}`;
+    } else if (queryType == "song") {
+      targetUrl = `http://www.songsterr.com/a/ra/songs/byartists.json?artists=${query}`;
+    }
 
     // CORS proxy used for outside request
     let proxyUrl = `https://cors-anywhere.herokuapp.com/${targetUrl}`;
     const response = await axios.get(proxyUrl, {
       headers: { "Content-Type": "application/json" },
     });
-    setData(response.data[0]);
+    // setData(response.data[0]);
+    console.log(response.data);
+    console.log("Values: ", Object.values(response.data));
+    console.log("Keys: ", Object.keys(response.data));
+    console.log("Name: ", response.data[0].artist.name);
+    console.log(typeof response.data);
+    setData(response.data);
     setLanded(false);
   };
 
