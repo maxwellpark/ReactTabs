@@ -1,5 +1,9 @@
 .header {
-    text-align: center;
-    padding-bottom: 5rem;
-    font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 5rem;
+  font-family: "Courier New", Courier, monospace;
+  color: whitesmoke;
+  background-color: black;
 }

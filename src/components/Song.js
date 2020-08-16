@@ -1,18 +1,22 @@
-import React from 'react';
-import '../styles/Song.css';
+import React from "react";
+import "../styles/Song.css";
 
-const Song = ({data, landed}) => {
-    const address = `http://www.songsterr.com/a/wa/song?id=${data.id}`;
-    console.log("Hi");
-    console.log(data);
+const Song = ({ id, title, artist }) => {
+  return (
+    <div className="song">
+      <h2 className="title">{title}</h2>
+      <h3 className="artist">{artist}</h3>
 
-    return(
-        <div className="song">
-            <h2 className="title">{data.title}</h2>
-            {(!landed) ? <h3 className="artist">{data.artist.nameWithoutThePrefix}</h3> : null} 
-            <a className="tab-link" href={address}>Guitar Tab</a>
-        </div>        
-    )
-}
+      <a
+        className="tab-link"
+        target="_blank"
+        rel="noopener"
+        href={`http://www.songsterr.com/a/wa/song?id=${id}`}
+      >
+        Guitar Tab
+      </a>
+    </div>
+  );
+};
 
 export default Song;

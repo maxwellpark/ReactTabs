@@ -1,35 +1,60 @@
-import React from 'react';
-import Header from './Header';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SearchBar from './SearchBar';
-import SubmitButton from './SubmitButton';
-import Song from './Song'; 
+import React from "react";
+import Header from "./Header";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import QueryRadios from "./QueryRadios";
+import SearchBar from "./SearchBar";
+import SubmitButton from "./SubmitButton";
+import SongCatalogue from "./SongCatalogue";
 
-const Layout = ({data, getQuery, getData, landed}) => {
-    // Grid dimensions 
-    const col1Width = 3; 
-    const col2Width = 6; 
-    const col3Width = 1; 
+const Layout = ({
+  data,
+  getQuery,
+  getData,
+  getQueryType,
+  queryFeedback,
+  status,
+}) => {
+  // Grid dimensions
+  const col1Width = 3;
+  const col2Width = 6;
+  const col3Width = 1;
 
-    return(
-        <>
-        <Header />
-        <Container fluid>
+  return (
+    <>
+      <Header />
+      <Container fluid>
         <Row>
-            <Col xs={col1Width} />
-            <Col xs={col2Width}>
-                <SearchBar getQuery={getQuery} />
-            </Col>
-            <Col xs={col3Width}>
-                <SubmitButton getData={getData} getQuery={getQuery}>Submit</SubmitButton>
-            </Col>
+          <Col>
+            <QueryRadios getQueryType={getQueryType} />
+          </Col>
         </Row>
-        <Song data={data} landed={landed}/>
-    </Container>
+        <Row className="query-container">
+          <Col xs={col1Width} />
+          <Col xs={col2Width}>
+            <SearchBar
+              getData={getData}
+              getQuery={getQuery}
+              queryFeedback={queryFeedback}
+            />
+          </Col>
+          <Col xs={col3Width}>
+            <SubmitButton getData={getData} getQuery={getQuery}>
+              Submit
+            </SubmitButton>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={col1Width} />
+          <Col xs={col2Width}>
+            <SongCatalogue data={data} status={status} />
+          </Col>
+          <Col xs={col3Width} />
+        </Row>
+      </Container>
     </>
-    );
+  );
 };
 
-export default Layout; 
+export default Layout;
