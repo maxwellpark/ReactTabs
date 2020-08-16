@@ -6,10 +6,16 @@ import Col from "react-bootstrap/Col";
 import QueryRadios from "./QueryRadios";
 import SearchBar from "./SearchBar";
 import SubmitButton from "./SubmitButton";
-import Song from "./Song";
 import SongCatalogue from "./SongCatalogue";
 
-const Layout = ({ data, getQuery, getData, getQueryType, landed }) => {
+const Layout = ({
+  data,
+  getQuery,
+  getData,
+  getQueryType,
+  queryFeedback,
+  status,
+}) => {
   // Grid dimensions
   const col1Width = 3;
   const col2Width = 6;
@@ -27,7 +33,11 @@ const Layout = ({ data, getQuery, getData, getQueryType, landed }) => {
         <Row className="query-container">
           <Col xs={col1Width} />
           <Col xs={col2Width}>
-            <SearchBar getData={getData} getQuery={getQuery} />
+            <SearchBar
+              getData={getData}
+              getQuery={getQuery}
+              queryFeedback={queryFeedback}
+            />
           </Col>
           <Col xs={col3Width}>
             <SubmitButton getData={getData} getQuery={getQuery}>
@@ -38,7 +48,7 @@ const Layout = ({ data, getQuery, getData, getQueryType, landed }) => {
         <Row>
           <Col xs={col1Width} />
           <Col xs={col2Width}>
-            <SongCatalogue data={data} landed={landed} />
+            <SongCatalogue data={data} status={status} />
           </Col>
           <Col xs={col3Width} />
         </Row>

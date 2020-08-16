@@ -1,8 +1,8 @@
 a:link {
-  color: #0300a0;
+  color: #73ad21 !important;
 }
 a:visited {
-  color: #590083;
+  color: #a02ad6 !important;
 }
 a:hover {
   text-decoration: underline;
@@ -12,10 +12,13 @@ a:hover {
 .tab-link {
   text-align: center;
   color: white;
-  /* border-bottom: 1px solid white; */
-  /* padding-bottom: 3px; */
 }
 
 .song-catalogue {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 5px;
   background-color: black;
+  border-radius: 25px;
+  border: 2px solid #73ad21;
 }
