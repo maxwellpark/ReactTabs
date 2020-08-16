@@ -10,6 +10,7 @@ const Song = ({ id, title, artist }) => {
       <a
         className="tab-link"
         target="_blank"
+        rel="noopener"
         href={`http://www.songsterr.com/a/wa/song?id=${id}`}
       >
         Guitar Tab
