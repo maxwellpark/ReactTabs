@@ -1,3 +1,9 @@
 .radio-btn {
   padding-bottom: 10px;
 }
+
+.search-bar {
+  background-color: white;
+  color: white;
+  outline: none;
+}

@@ -6,7 +6,7 @@ const Song = ({ id, title, artist, landed }) => {
     <div className="song">
       {!landed ? <h2 className="title">{title}</h2> : null}
       {!landed && artist != undefined ? (
-        <h3 className="artist">{artist.name}</h3>
+        <h3 className="artist">{artist}</h3>
       ) : null}
       {!landed ? (
         <a

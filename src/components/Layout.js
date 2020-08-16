@@ -24,7 +24,7 @@ const Layout = ({ data, getQuery, getData, getQueryType, landed }) => {
             <QueryRadios getQueryType={getQueryType} />
           </Col>
         </Row>
-        <Row>
+        <Row className="query-container">
           <Col xs={col1Width} />
           <Col xs={col2Width}>
             <SearchBar getData={getData} getQuery={getQuery} />
@@ -35,8 +35,13 @@ const Layout = ({ data, getQuery, getData, getQueryType, landed }) => {
             </SubmitButton>
           </Col>
         </Row>
-        {/* <Song data={data} landed={landed} /> */}
-        <SongCatalogue data={data} landed={landed} />
+        <Row>
+          <Col xs={col1Width} />
+          <Col xs={col2Width}>
+            <SongCatalogue data={data} landed={landed} />
+          </Col>
+          <Col xs={col3Width} />
+        </Row>
       </Container>
     </>
   );
