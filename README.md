@@ -1,6 +1,8 @@
 # react-tabs
 
-Search for your favourite songs or artists to receive guitar, bass, or drum tablature.
+Search for your favourite songs or artists to receive information as well as links to guitar tablature on songsterr.com. 
+
+___
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
